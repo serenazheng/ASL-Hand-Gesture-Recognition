@@ -20,14 +20,14 @@ ASL-Hand-Gesture-Recognition/
 │── README.md  # Project documentation
 │── .gitignore  # Files to ignore in Git
 
-Model Architecture: Transfer Learning with Custom CNN
-🔹 Step 1: Feature Extraction with AlexNet
+Model Architecture: Transfer Learning with Custom CNN/n
+🔹 Step 1: Feature Extraction with AlexNet/n
 AlexNet, a well-established Convolutional Neural Network (CNN) pre-trained on ImageNet, is used as a feature extractor in this project. Instead of training a model from scratch, we take advantage of AlexNet's early convolutional layers, which are excellent at capturing essential spatial patterns such as edges, shapes, and textures.
-🔹 Step 2: Custom CNN Classifier
+🔹 Step 2: Custom CNN Classifier/n
 To adapt the extracted features to ASL hand gesture classification, we design a custom Convolutional Neural Network (CNN). This classifier refines the feature maps from AlexNet and maps them to 9 different ASL gestures.
-🔹 Step 3: Training the Model
+🔹 Step 3: Training the Model/n
 Once the model architecture is defined, we train it using the extracted features from AlexNet. The classifier is trained using a CrossEntropyLoss function, and the weights are updated using the Adam optimizer.
-🔹 Step 4: Model Evaluation
+🔹 Step 4: Model Evaluation/n
 After training, the model is evaluated on a separate test set using accuracy. A confusion matrix is used to visualize the model’s classification performance.
 
 🏆 Model Performance Summary
