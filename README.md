@@ -37,15 +37,30 @@ Normalization: Standardized pixel values for improved training stability.
 ## Model Architecture: Transfer Learning with CNN Classifier
 🔹 Step 1: Feature Extraction with AlexNet  
 AlexNet, a well-established Convolutional Neural Network (CNN) pre-trained on ImageNet, is used as a feature extractor in this project. Instead of training a model from scratch, we take advantage of AlexNet's early convolutional layers, which are excellent at capturing essential spatial patterns such as edges, shapes, and textures.  
+- detail: The neural network alexnet.features expects an image tensor of shape Nx3x224x224 as input and it will output a tensor of shape Nx256x6x6 . (N = batch size).
 🔹 Step 2: Custom CNN Classifier  
 To adapt the extracted features to ASL hand gesture classification, we design a custom Convolutional Neural Network (CNN). This classifier refines the feature maps from AlexNet and maps them to 9 different ASL gestures.  
+- detail: The neural network consists of 1 convolutional layer, 1 adaptive pooling layer, and 2 fully connected layers,
+making a total of 4 key layers used for feature extraction and classification.
+The convolutional layer takes the 256 feature maps from AlexNet as input and applies 128 filters with a 5×5 kernel,
+allowing it to refine the spatial patterns extracted by AlexNet.
+Instead of max pooling, the network uses an adaptive average pooling layer,
+which ensures that the spatial dimensions are always reduced to 3×3, regardless of the padding setting.
+This guarantees a consistent input size for the fully connected layers without shape mismatches.
+The network then flattens the pooled feature maps and passes them through two fully connected layers with 128 and 9 hidden units, respectively.
+The first fully connected layer applies the ReLU activation function to introduce non-linearity,
+while the final fully connected layer produces raw logits for classification.
+During inference, a softmax function is applied to convert the logits into class probabilities.
+This architecture is designed to efficiently leverage the pre-extracted AlexNet features
+while ensuring a fixed feature map size before classification, making the model robust to different padding values,
+computationally efficient, and effective for accurate classification.
 🔹 Step 3: Training the Model  
 Once the model architecture is defined, we train it using the extracted features from AlexNet. The classifier is trained using a CrossEntropyLoss function, and the weights are updated using the Adam optimizer.  
 🔹 Step 4: Hyperparameter Tuning
-The best-performing model was obtained through hyperparameter tuning. The final configuration is as follows:
-  - conv1_channels: 256  
-  - kernel_size: 5  
-  - learning_rate: 0.0005  
+The best-performing model was obtained through hyperparameter tuning. The final configuration is as follows:  
+- conv1_channels: 256
+- kernel_size: 5  
+- learning_rate: 0.0005  
 🔹 Step 5: Model Evaluation  
 After training and hyperparameter Tuning, the model is evaluated on a test set using accuracy. A confusion matrix is used to visualize the model’s classification performance per class.  
 
