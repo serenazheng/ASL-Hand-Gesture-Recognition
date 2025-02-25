@@ -14,7 +14,7 @@ ASL-Hand-Gesture-Recognition/
 │── data/  
 │   ├── A2_Hand_Gesture_Dataset_revised.zip  # Dataset with ASL hand gesture images  
 │   ├── test.zip  # Test dataset 27 images total, 3 images per class  
-│   ├── A2_Hand_Gesture_Unlabeled_Data.zip  # unlabeled dataset
+│   ├── A2_Hand_Gesture_Unlabeled_Data.zip  # unlabeled dataset  
 │   ├── textures.zip  # Background textures for data augmentation  
 │── ASL_Hand_Gesture.ipynb  # Jupyter Notebook for model training & evaluation  
 │── README.md  # Project documentation  
