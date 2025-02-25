@@ -14,6 +14,7 @@ ASL-Hand-Gesture-Recognition/
 │── data/  
 │   ├── A2_Hand_Gesture_Dataset_revised.zip  # Dataset with ASL hand gesture images  
 │   ├── test.zip  # Test dataset 27 images total, 3 images per class  
+│   ├── A2_Hand_Gesture_Unlabeled_Data.zip  # unlabeled dataset
 │   ├── textures.zip  # Background textures for data augmentation  
 │── ASL_Hand_Gesture.ipynb  # Jupyter Notebook for model training & evaluation  
 │── README.md  # Project documentation  
@@ -42,28 +43,22 @@ To adapt the extracted features to ASL hand gesture classification, we design a 
 Once the model architecture is defined, we train it using the extracted features from AlexNet. The classifier is trained using a CrossEntropyLoss function, and the weights are updated using the Adam optimizer.  
 🔹 Step 4: Hyperparameter Tuning
 The best-performing model was obtained through hyperparameter tuning. The final configuration is as follows:  
-Conv1 Channels: 256  
-Conv2 Channels: 512  
-FC1 Units: 256  
-FC2 Units: 128  
-Kernel Size: 7  
-Learning Rate: 0.0001  
+  - conv1_channels: 256  
+  - kernel_size: 5  
+  - learning_rate: 0.0005  
 🔹 Step 5: Model Evaluation  
 After training and hyperparameter Tuning, the model is evaluated on a test set using accuracy. A confusion matrix is used to visualize the model’s classification performance per class.  
 
 ## Model Performance Summary
 Dataset	Accuracy  
-Training	91.45%  
-Validation	78.90%  
-Test	92.59%  
+Test set split from dataset: 95.06%  
+Test of 27 images: 92.59%  
+Unlabeled dataset accuracy: 93.50%  (evaluated by course TA)
 
 ## Future Improvements  
-🚀 Enhancing Model Performance  
-Replace AlexNet with ResNet / MobileNet for better feature extraction.  
-Fine-tune hyperparameters using Bayesian Optimization.  
-📸 Real-Time Gesture Recognition  
-Integrate OpenCV for real-time ASL recognition.  
-🌎 Deployment  
-Deploy the model using Flask or FastAPI to serve predictions via a web app.
+Expand to full ASL alphabet (A-Z) and numbers (0-9).  
+Implement a region proposal tool to detect hand gestures in image frames, for example pretrained YOLO models, or a region proposal tool from openCV.
+Improve dataset diversity by incorporating more real-world variations.  
+Deploy as a real-time ASL-to-text mobile/web application.  
 
 
