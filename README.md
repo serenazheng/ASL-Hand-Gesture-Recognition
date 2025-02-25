@@ -42,7 +42,7 @@ To adapt the extracted features to ASL hand gesture classification, we design a 
 🔹 Step 3: Training the Model  
 Once the model architecture is defined, we train it using the extracted features from AlexNet. The classifier is trained using a CrossEntropyLoss function, and the weights are updated using the Adam optimizer.  
 🔹 Step 4: Hyperparameter Tuning
-The best-performing model was obtained through hyperparameter tuning. The final configuration is as follows:  
+The best-performing model was obtained through hyperparameter tuning. The final configuration is as follows:
   - conv1_channels: 256  
   - kernel_size: 5  
   - learning_rate: 0.0005  
