@@ -63,6 +63,7 @@ The best-performing model was obtained through hyperparameter tuning. The final 
 - conv1_channels: 256
 - kernel_size: 5  
 - learning_rate: 0.0005  
+  
 🔹 Step 5: Model Evaluation  
 After training and hyperparameter Tuning, the model is evaluated on a test set using accuracy. A confusion matrix is used to visualize the model’s classification performance per class.  
 
